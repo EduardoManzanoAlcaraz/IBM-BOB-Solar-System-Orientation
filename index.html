@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Solar Interactivo - Estructura Dividida</title>
+    <link rel="stylesheet" href="bob-code-solar-orientation4.css">
+</head>
+<body>
+
+    <div class="main-layout">
+        <!-- Columna Izquierda: Órbitas, Controles y Vista Lateral -->
+        <div class="left-panel">
+            <div class="view-box">
+                <h3 class="panel-title">Vista Superior (Real vs Estimada 'X')</h3>
+                <canvas id="solarSystem" width="500" height="400"></canvas>
+            </div>
+            
+            <div class="view-box">
+                <h3 class="panel-title">Vista Panorámica desde A hacia el Sol</h3>
+                <canvas id="panoView" width="500" height="400"></canvas>
+            </div>
+
+            <div class="controls">
+                <div class="control-group">
+                    <label for="epochRange">Fecha: <span id="epochVal">01/01/2026</span></label>
+                    <input type="range" id="epochRange" min="0" max="11322" value="0">
+                </div>
+                <div class="control-group">
+                    <label for="speedRange">Velocidad: <span id="speedVal">1</span>x</label>
+                    <input type="range" id="speedRange" min="0" max="10" step="0.5" value="1">
+                </div>
+            </div>
+        </div>
+
+        <!-- Columna Derecha: Marco que incluye Tablas, Resultados y Copia Equirectangular -->
+        <div class="right-panel-frame">
+            <h3 class="panel-title">Panel de Datos y Resultados</h3>
+            
+            
+       <div class="equirectangular-section">
+                <h3 class="panel-title">Imagen de Entrada (Equirectangular -180° a +180°)</h3>
+                <canvas id="equirectangularCopy" width="600" height="150"></canvas>
+            </div>
+
+<div class="table-box">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Planeta</th>
+                            <th>Áng. al Centro</th>
+                            <th>Pos. (X, Y) UA</th>
+                        </tr>
+                    </thead>
+                    <tbody id="angleTableBody">
+                        <!-- Dinámico -->
+                    </tbody>
+                </table>
+                <div class="est-box" id="estInfo">
+                    <strong>Punto A Estimado:</strong> Calculando...
+                </div>
+            </div>
+
+            <div class="info" id="infoText">Haz clic en la vista superior para fijar el punto real A.</div>
+        </div>
+    </div>
+
+    <script src="bob-code-solar-orientation4.js"></script>
+</body>
+</html>
